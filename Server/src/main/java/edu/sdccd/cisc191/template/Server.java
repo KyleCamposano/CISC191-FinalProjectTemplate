@@ -12,28 +12,42 @@ public class Server {
     public static void main(String[] args) {
         Scanner userInput = new Scanner(System.in);
 
-        //calls ColorGame() method from ColorGame class.
-        new ColorGame();
+        //  creates a new empty file in the directory
+        HandlingFile.createFile();
 
+        //  calls ColorGame() method from ColorGame class with RiddleGame class.
+        new RiddleGame();
 
-        //user is prompted the DigitsGame after completion of Color Game.
-        System.out.println("Would you like to continue to another game?");
+        //  user is prompted the DigitsGame after completion of Color Game.
+        System.out.println("Would you like to try another game?");
         String userGuess = userInput.nextLine().toLowerCase();
-
 
         while (!(userGuess.equals("yes") || userGuess.equals("no"))) {
             System.out.println("Invalid input. Please answer yes or no");
             userGuess = userInput.nextLine().toLowerCase();
         }
 
-        if (userGuess.equals("no")) {
+        //  "yes" option calls the DigitsGame() method from DigitsGame class.
+        if (userGuess.equals("yes")){
+            new DigitsGame();
+        }
+
+        //  the results.txt has been appended in ColorGame and DigitsGame classes
+        System.out.println("\nWould you like to view your total attempts?");
+        userGuess = userInput.nextLine().toLowerCase();
+
+        if (userGuess.equals("yes")) {
+            HandlingFile.readFile(); //reads results.txt
+            System.out.println("\n-------------------------------------\n" +
+                    "Terminating...\n" +
+                    "Thank you for checking out this program!");
+        } else {
             System.out.println("\n-------------------------------------\n" +
                     "Terminating...\n" +
                     "Thank you for checking out this program!");
         }
-        //"yes" option calls the DigitsGame() method from DigitsGame class.
-        if (userGuess.equals("yes")){
-            new DigitsGame();
-        }
+
+        //calls deleteFile() method to delete output.txt in the directory
+        HandlingFile.deleteFile();
     }
 }

@@ -15,6 +15,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import java.util.Random;
 
+/**
+ * Converted Server.java into JavaFX GUI. The same two
+ * games with the same user prompts.
+ */
+
 public class ColorGameJavaFX extends Application {
 
     Stage windowFirst;
@@ -26,7 +31,7 @@ public class ColorGameJavaFX extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
 
         //First window
         windowFirst = primaryStage;
