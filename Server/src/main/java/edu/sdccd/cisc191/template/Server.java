@@ -13,7 +13,7 @@ public class Server {
         Scanner userInput = new Scanner(System.in);
 
         //  creates a new empty file in the directory
-        HandlingFile.createFile();
+        HandlingFile.createFile("results.txt");
 
         //  calls ColorGame() method from ColorGame class with RiddleGame class.
         new RiddleGame();
@@ -37,7 +37,7 @@ public class Server {
         userGuess = userInput.nextLine().toLowerCase();
 
         if (userGuess.equals("yes")) {
-            HandlingFile.readFile(); //reads results.txt
+            HandlingFile.readFile("results.txt"); //reads results.txt
             System.out.println("\n-------------------------------------\n" +
                     "Terminating...\n" +
                     "Thank you for checking out this program!");
@@ -48,6 +48,6 @@ public class Server {
         }
 
         //calls deleteFile() method to delete output.txt in the directory
-        HandlingFile.deleteFile();
+        HandlingFile.deleteFile("results.txt");
     }
 }

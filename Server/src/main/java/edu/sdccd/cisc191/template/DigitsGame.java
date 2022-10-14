@@ -65,8 +65,8 @@ public class DigitsGame extends RandomizeArrays implements Game, Achievable {
 
             //  uncomment to print the random numbers
             //  to test if user input matches.
-            System.out.println(firstNumber);
-            System.out.println(secondNumber);
+            //  System.out.println(firstNumber);
+            //  System.out.println(secondNumber);
 
             System.out.print("What's my first half?\n");
             int firstHalf = userInput.nextInt();

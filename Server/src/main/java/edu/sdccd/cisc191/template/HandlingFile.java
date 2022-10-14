@@ -9,19 +9,21 @@ import java.io.*;
  */
 public class HandlingFile {
     //  writes the entire DigitsGame into the output.txt file in the directory
-    public static void createFile() {
+    public static String createFile(String fileName) {
         try {
-            BufferedWriter writer  = new BufferedWriter(new FileWriter("results.txt"));
+            BufferedWriter writer  = new BufferedWriter(new FileWriter(fileName));
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return fileName;
     }
 
     //  reads all lines of the output.txt file
-    public static void readFile() {
+    public static void readFile(String fileName) {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("results.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader(fileName));
             String line;
             while ((line = reader.readLine()) != null) {
                 System.out.println(line);
@@ -31,11 +33,12 @@ public class HandlingFile {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     //  deletes the output.txt created in the directory
-    public static void deleteFile() {
-        File file = new File("results.txt");
+    public static String deleteFile(String fileName) {
+        File file = new File(fileName);
 
         if(file.exists()) {
             if (file.delete()) {
@@ -44,13 +47,13 @@ public class HandlingFile {
                 System.out.println("\nFailed to delete " + file.getName() + " file");
             }
         }
-    }
 
-    public HandlingFile() {
-        HandlingFile.createFile();
-        HandlingFile.readFile();
+        return fileName;
     }
 
     //  calls createFile() and readFile() methods -- does NOT delete the output file!
-
+    public HandlingFile() {
+        HandlingFile.createFile("");
+        HandlingFile.readFile("");
+    }
 }
